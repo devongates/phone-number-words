@@ -19,9 +19,9 @@ function App() {
 
 	const handleBackspace = () => {
 		if (phoneNumber) {
-			const newNumber = phoneNumber
+			const newNumber = [...phoneNumber]
 			newNumber.pop()
-			setPhoneNumber([...newNumber])
+			setPhoneNumber(newNumber)
 		}
 	}
 
