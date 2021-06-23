@@ -22,7 +22,6 @@ function App() {
 			const newNumber = phoneNumber
 			newNumber.pop()
 			setPhoneNumber([...newNumber])
-			console.log(phoneNumber)
 		}
 	}
 
