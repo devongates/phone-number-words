@@ -2,16 +2,11 @@ import React from 'react'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
-const Display = (props) => {
-	const { phoneNumber } = props
+const Display = ({ phoneNumber }) => {
 	return (
 		<Container>
-			<Col md={{ span: 6, offset: 3 }}>
-				<Container className='text-center'>
-					{phoneNumber.map((number) => {
-						return number
-					})}
-				</Container>
+			<Col md={{ span: 4, offset: 4 }}>
+				<h2 className='text-center'>{phoneNumber.join('')}</h2>
 				<hr></hr>
 			</Col>
 		</Container>

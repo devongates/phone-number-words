@@ -21,13 +21,14 @@ function App() {
 		if (phoneNumber) {
 			const newNumber = phoneNumber
 			newNumber.pop()
-			setPhoneNumber(newNumber)
+			setPhoneNumber([...newNumber])
+			console.log(phoneNumber)
 		}
 	}
 
 	return (
 		<Container className='p-3'>
-			<Display props={phoneNumber} />
+			<Display phoneNumber={phoneNumber} />
 			<Keypad
 				handleClick={handleClick}
 				handleClear={handleClear}
