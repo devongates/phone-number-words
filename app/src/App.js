@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Keypad from './Keypad'
+import Display from './Display'
+import { useState } from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [phoneNumber, setPhoneNumber] = useState([])
+
+	const handleClick = (num) => {
+		if (phoneNumber.length < 10) {
+			setPhoneNumber([...phoneNumber, num])
+		}
+	}
+
+	const handleClear = () => {
+		setPhoneNumber([])
+	}
+
+	const handleBackspace = () => {
+		if (phoneNumber) {
+			const newNumber = phoneNumber
+			newNumber.pop()
+			setPhoneNumber(newNumber)
+		}
+	}
+
+	return (
+		<Container className='p-3'>
+			<Display props={phoneNumber} />
+			<Keypad
+				handleClick={handleClick}
+				handleClear={handleClear}
+				handleBackspace={handleBackspace}
+			/>
+		</Container>
+	)
 }
 
-export default App;
+export default App
