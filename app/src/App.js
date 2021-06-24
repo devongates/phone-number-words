@@ -2,10 +2,19 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Keypad from './Keypad'
 import Display from './Display'
-import { useState } from 'react'
+import Results from './Results'
+import findWords from './util/wordFinder'
+import { useState, useEffect } from 'react'
 
 function App() {
 	const [phoneNumber, setPhoneNumber] = useState([])
+	const [phoneNumberWords, setPhoneNumberWords] = useState([])
+
+	useEffect(() => {
+		console.log(phoneNumber)
+		console.log(findWords(phoneNumber))
+		setPhoneNumberWords(findWords(phoneNumber))
+	}, [phoneNumber])
 
 	const handleClick = (num) => {
 		if (phoneNumber.length < 10) {
@@ -33,6 +42,7 @@ function App() {
 				handleClear={handleClear}
 				handleBackspace={handleBackspace}
 			/>
+			<Results phoneNumberWords={phoneNumberWords} />
 		</Container>
 	)
 }
