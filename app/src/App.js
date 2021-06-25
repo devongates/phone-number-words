@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
 import Keypad from './Keypad'
 import Display from './Display'
 import Results from './Results'
@@ -36,13 +37,15 @@ function App() {
 
 	return (
 		<Container className='p-3'>
-			<Display phoneNumber={phoneNumber} />
-			<Keypad
-				handleClick={handleClick}
-				handleClear={handleClear}
-				handleBackspace={handleBackspace}
-			/>
-			<Results phoneNumberWords={phoneNumberWords} />
+			<Col md={{ span: 4, offset: 4 }}>
+				<Display phoneNumber={phoneNumber} />
+				<Keypad
+					handleClick={handleClick}
+					handleClear={handleClear}
+					handleBackspace={handleBackspace}
+				/>
+				<Results phoneNumberWords={phoneNumberWords} />
+			</Col>
 		</Container>
 	)
 }

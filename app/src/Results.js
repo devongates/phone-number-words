@@ -5,7 +5,7 @@ import ListGroupItem from 'react-bootstrap/esm/ListGroupItem'
 
 const Results = ({ phoneNumberWords }) => {
 	return (
-		<Container>
+		<Container className='my-3'>
 			<ListGroup>
 				{phoneNumberWords.map((word) => {
 					return <ListGroupItem>{word}</ListGroupItem>
