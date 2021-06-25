@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import { FaBackspace, FaTrash } from 'react-icons/fa'
 
 const Keypad = ({ handleClick, handleClear, handleBackspace }) => {
