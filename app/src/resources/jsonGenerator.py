@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import re
+from collections import defaultdict
 
 numberDict = {
     0: [],
@@ -20,6 +21,8 @@ for k, v in numberDict.items():
     for x in v:
         letterDict.setdefault(x, k)
 
+print(letterDict)
+
 parsedWords = []
 wordToNumberDict = {}
 
@@ -34,7 +37,9 @@ with open('words.txt', 'r') as readFile:
             number += str(letterDict[letter])
         wordToNumberDict[word] = number
 
-numberToWordDict = {v: k for k, v in wordToNumberDict.items()}
+numberToWordDict = defaultdict(list)
+for k, v in wordToNumberDict.items():
+    numberToWordDict[v].append(k)
 
 with open('numberToWord.js', 'w') as writeFile:
     writeFile.write('const numberToWord = ')
